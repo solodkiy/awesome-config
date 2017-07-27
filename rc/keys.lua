@@ -1,5 +1,5 @@
 local awful = require("awful")
-local APW = require("apw/widget")
+-- local APW = require("apw/widget")
 local lain = require("lain")
 
 local sharetags = require("sharetags")
@@ -110,9 +110,9 @@ globalkeys = awful.util.table.join(
     awful.key({ "Control" }, "XF86PowerOff",          function () awful.util.spawn("exitmenu") end),
 
 
-    awful.key({ }, "XF86AudioRaiseVolume",  APW.Up),
-    awful.key({ }, "XF86AudioLowerVolume",  APW.Down),
-    awful.key({ }, "XF86AudioMute",         APW.ToggleMute),
+    -- awful.key({ }, "XF86AudioRaiseVolume",  APW.Up),
+    -- awful.key({ }, "XF86AudioLowerVolume",  APW.Down),
+    -- awful.key({ }, "XF86AudioMute",         APW.ToggleMute),
 
 
     --lang

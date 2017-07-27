@@ -17,11 +17,11 @@ local menubar = require("menubar")
 
 local inspect = require("inspect")
 
-require("hints")
-require("cheeky")
+-- require("hints")
+-- require("cheeky")
 
 
-local APW = require("apw/widget")
+-- local APW = require("apw/widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -58,13 +58,14 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("~/.config/awesome/theme.lua")
-beautiful.init("/home/doc/.config/awesome/themes/doc/theme.lua")
+beautiful.init("/home/alexey/.config/awesome/themes/doc/theme.lua")
 
-hints.init()
+-- hints.init()
 
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+-- terminal = "terminator"
+terminal = "gnome-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -83,7 +84,7 @@ modkey = "Mod4"
 
 -- {{{ Wallpaper
 for s = 1, screen.count() do
-  gears.wallpaper.centered("/home/doc/Desktop/crimsonking.png", s)
+  gears.wallpaper.centered("/home/alexey/Изображения/Wallpapers/Path.png", s)
 end
 -- }}}
 
@@ -205,7 +206,7 @@ for s = 1, screen.count() do
     -- }}}
 
 
-    right_layout:add(APW)
+    -- right_layout:add(APW)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
