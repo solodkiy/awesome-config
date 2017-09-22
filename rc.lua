@@ -84,7 +84,7 @@ modkey = "Mod4"
 
 -- {{{ Wallpaper
 for s = 1, screen.count() do
-  gears.wallpaper.centered("/home/alexey/Изображения/Wallpapers/Path.png", s)
+  gears.wallpaper.centered("/home/alexey/Изображения/Wallpapers/Tarantula_Nebula_Ultra_HD.jpg", s)
 end
 -- }}}
 
@@ -518,11 +518,11 @@ end
 
 
 
-spawn_once("subl3", "Subl3", tags[1])
+-- spawn_once("subl3", "Subl3", tags[1])
 --spawn_once("subl", "Sublime_text", tags[1][2])
 
 --spawn_once("pcmanfm", "Pcmanfm", tags[1][4])
-spawn_once("thunderbird", "Thunderbird", tags[9])
+-- spawn_once("thunderbird", "Thunderbird", tags[9])
 
 
 --spawn_once("deadbeef", "Deadbeef", tags[2][10])
@@ -531,7 +531,7 @@ spawn_once("thunderbird", "Thunderbird", tags[9])
 --spawn_once("roxterm", "Roxterm", tags[1][5])
 
 --spawn_once("mlo.sh", "Wine", tags[2][2]) -- 1: mlo
-spawn_once("firefox-main.sh", "Firefox", tags[3])
+-- spawn_once("firefox-main.sh", "Firefox", tags[3])
 
 
 

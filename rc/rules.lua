@@ -14,8 +14,6 @@ local rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 		     size_hints_honor = false, } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
@@ -32,8 +30,8 @@ local rules = {
       } },
 
 
-{ rule = { name=  "Действия над файлами"}, 
- properties = { floating = true }},
+-- { rule = { name=  "Действия над файлами"}, 
+-- properties = { floating = true }},
 
 
     -- Set Firefox to always map on tags number 2 of screen 1.
@@ -43,37 +41,13 @@ local rules = {
           border_width = 0
       } },
 
-    { rule = { class = "sublime-text" },
-      properties = { 
-       -- border_width = 0
-      } },
-
-    { rule = { class = "Subl3" },
-        properties = {
-            --border_width = 0
-        } },
-
-
-
-    { rule = { instance = "mlo.exe" },
-      properties = { 
-        tag = tags[5],
-        border_width = 0
-      } },  
-
-
 
 
       { rule = { class = "Synapse" },
         properties = {        
-        border_width = 0
+--        border_width = 0
       } },  
 
-       { rule = { class = "Cherrytree" },
-      properties = { 
-        tag = tags[2],
-        border_width = 0
-      } }, 
 
       
 
@@ -106,6 +80,7 @@ local rules = {
       properties = { tag = tags[1][4]  } }, 
       ]] 
 
+--[[
     { rule = { class = "jetbrains-phpstorm" },
       properties = { tag = tags[13],
           border_width =  0,
@@ -119,26 +94,8 @@ local rules = {
             border_width =  beautiful.border_width,
             floating = true
         } },
+]]
 
-
-
-    { rule = { class = "Steam" },
-      properties = { tag = tags[6],
-       border_width = 0,  
-      } },  
-
-
-    { rule = { class = "Transmission-gtk" },
-      properties = { tag = tags[10] } },
-    { rule = { class = "Transgui" },
-      properties = { tag = tags[10] } },
-
-
-    { rule = { class = "Roxterm" },
-      properties = { 
-        --border_color = "#ffffff"
-      }
-    },
 
        { rule = { name = "ExitMenu" },
       properties = { 
@@ -151,7 +108,6 @@ local rules = {
     { rule = { class = "Thunderbird" },
       properties = {
           tag = tags[9],
-          border_width = 0,
       }
     },
 
@@ -171,23 +127,17 @@ local rules = {
 
 
     { rule = { class = "Skype" },
-      properties = { tag = tags[16] } },
+      properties = { tag = tags[12] } },
     { rule = { class = "Pidgin" },
+      properties = { tag = tags[12] } },
+    { rule = { class = "HipChat" },
       properties = { tag = tags[12] } },
     { rule = { class = "Bitmessagemain.py" },
       properties = { tag = tags[12] } },
 
-    { rule = { class = "Gajim" },
-      properties = { tag = tags[12] , callback   = awful.client.setslave
-      }
-    } ,
-    { rule = { class = "Gajim", role = "roster" },
-        properties = {   callback   = awful.client.setmaster         , tag = tags[12]
-        }
-    } ,
 
 
-    awful.tag.setproperty(tags[12], "mwfact", 0.20)
+    -- awful.tag.setproperty(tags[12], "mwfact", 0.20)
 
  
     

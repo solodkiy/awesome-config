@@ -10,11 +10,12 @@ local default = lain.layout.uselesstile;
 
 layouts = {
     default,
-    --awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    --awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
+    
+    awful.layout.suit.tile.left,
+--    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
+--    awful.layout.suit.fair,
+--    awful.layout.suit.fair.horizontal,
 
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
@@ -26,26 +27,39 @@ layouts = {
     lain.layout.centerwork,
 }
 
-lain.layout.termfair.nmaster = 2
+lain.layout.termfair.nmaster = 3
 lain.layout.termfair.ncol = 1
 
-lain.layout.centerfair.nmaster = 2
+lain.layout.centerfair.nmaster = 3
 lain.layout.centerfair.ncol = 1
 
 
 
 
 local tags_names  = {
-    "0: notes", "1: text", "2: www", "3: file", "4: console", "5: win", "6", "7", "8: email", "9: torrents", "10: music",
+    "~: notes", "1: text", "2: www", "3: file", "4: console", "5: win", "6", "7", "8: email", "9: torrents", "0: music",
     "Q: im", "W: code", "E: work", "R",
     "A: skype", "S" }
 
 
-
 local tags_layout = {
-    default, lain.layout.centerfair, awful.layout.suit.max, layouts[2], lain.layout.uselesstile,  awful.layout.suit.max, layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
-    awful.layout.suit.tile, layouts[2], layouts[2], layouts[2],
-    lain.layout.centerwork, layouts[2]
+    default, -- ~
+    lain.layout.centerfair, -- 1
+    lain.layout.centerwork, -- 2
+    lain.layout.centerwork, -- 3
+    lain.layout.centerfair, -- 4
+    awful.layout.suit.max, -- 5
+    layouts[2], -- 6 
+    layouts[2], -- 7
+    layouts[2], -- 8
+    layouts[2], -- 9
+    layouts[2], -- 0
+    awful.layout.suit.tile, -- Q
+    layouts[2], 
+    layouts[2], 
+    layouts[2],
+    lain.layout.centerwork, 
+    layouts[2]
 }
 
 

@@ -79,7 +79,6 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "/media/hdd/Pic/Desktop/Porsche_wallpapers_204.jpg"
 
 
 -- You can use your own layout icons like this:
@@ -96,7 +95,7 @@ theme.layout_tiletop = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
 theme.layout_spiral  = "/usr/share/awesome/themes/default/layouts/spiralw.png"
 theme.layout_dwindle = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
 
-theme.lain_icons         = "/usr/share/awesome/lib/lain/icons/layout/default/"
+theme.lain_icons         = "/home/alexey/.config/awesome/lain/icons/layout/default/"
 theme.layout_termfair    = theme.lain_icons .. "termfairw.png"
 theme.layout_cascade     = theme.lain_icons .. "cascadew.png"
 theme.layout_cascadetile = theme.lain_icons .. "cascadetilew.png"
