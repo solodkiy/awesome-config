@@ -17,11 +17,12 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = 0
-theme.border_width  = 1
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_width  = 3
+theme.border_normal = "#777777" 
+theme.border_focus  = "#ff8000"
 theme.border_marked = "#91231c"
+theme.useless_gap   = 5
+
 
 -- There are other variable sets
 -- overriding the default one when
@@ -77,7 +78,7 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "/usr/share/awesome/themes/default/background.png"
+theme.wallpaper = "/opt/wallpapers/Tarantula_Nebula_Ultra_HD.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
@@ -96,6 +97,15 @@ theme.layout_cornernw = "/usr/share/awesome/themes/default/layouts/cornernww.png
 theme.layout_cornerne = "/usr/share/awesome/themes/default/layouts/cornernew.png"
 theme.layout_cornersw = "/usr/share/awesome/themes/default/layouts/cornersww.png"
 theme.layout_cornerse = "/usr/share/awesome/themes/default/layouts/cornersew.png"
+
+theme.lain_icons         = os.getenv("HOME") ..
+                           "/.config/awesome/lain/icons/layout/default/"
+theme.layout_termfair    = theme.lain_icons .. "termfairw.png"
+theme.layout_centerfair  = theme.lain_icons .. "centerfairw.png"  -- termfair.center
+theme.layout_cascade     = theme.lain_icons .. "cascadew.png"
+theme.layout_cascadetile = theme.lain_icons .. "cascadetilew.png" -- cascade.tile
+theme.layout_centerwork  = theme.lain_icons .. "centerworkw.png"
+theme.layout_centerhwork = theme.lain_icons .. "centerworkhw.png" -- centerwork.horizontal
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
