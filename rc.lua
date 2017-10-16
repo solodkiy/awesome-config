@@ -186,9 +186,9 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 
 local tags_names  = {
-    "~: notes", "1: text", "2: www", "3: file", "4: console", "5: win", "6", "7", "8: email", "9: torrents", "0: music",
+    "~: notes", "1: text", "2: www", "3: file", "4: console", "5: win", "6", "7", "8", "9: torrents", "0: music",
     "Q: im", "W: code", "E: work", "R",
-    "A: skype", "S" }
+    "A: email", "S" }
 
 local tags_layout = {
     lain.layout.termfair.center, -- ~
@@ -269,8 +269,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+    -- awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    --           {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -585,9 +585,15 @@ awful.rules.rules = {
     --  }, properties = { titlebars_enabled = true }
     -- },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set tags
+    { rule = { class = "Thunderbird" },
+      properties = { tag = "A: email"} },
+
+    { rule = { class = "Google-chrome" },
+      properties = { tag = "2: www"} },
+
+    { rule = { class= "HipChat" },
+      properties = { tag = "Q: im"} }
 }
 -- }}}
 
