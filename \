@@ -65,7 +65,11 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     awful.layout.suit.max,
+    awful.layout.suit.corner.nw,
     lain.layout.termfair,
     lain.layout.termfair.center,
     lain.layout.centerwork,
@@ -184,7 +188,7 @@ local tags_names  = {
 local tags_layout = {
     lain.layout.termfair.center, -- ~
     lain.layout.termfair.center, -- 1
-    lain.layout.centerwork, -- 3
+    lain.layout.termfair.center, -- 2
     lain.layout.centerwork, -- 3
     lain.layout.termfair.center, -- 4
     awful.layout.suit.max, -- 5
@@ -210,14 +214,15 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag(tags_names, s, tags_layout)
 
-    --[[
     awful.tag.add("First tag", {
-        layout = lain.layout.centerwork, 
-        master_width_factor = 0.8,
-        screen             = s,
-    })
-    ]]
-s.tags[3].master_width_factor = 0.6 -- www
+    icon               = "/path/to/icon1.png",
+    layout             = awful.layout.suit.tile,
+    master_fill_policy = "master_width_factor",
+    gap_single_client  = true,
+    gap                = 15,
+    screen             = s,
+    selected           = true,
+})
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
