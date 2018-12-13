@@ -161,13 +161,14 @@ local tasklist_buttons = awful.util.table.join(
 
 local function set_wallpaper(s)
     -- Wallpaper
+    beautiful.wallpaper = '/opt/wallpapers/christian-holzinger-755549-unsplash.jpg'
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
         -- If wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.maximized(wallpaper, s, true)
+        gears.wallpaper.maximized(wallpaper, s, false)
     end
 end
 
