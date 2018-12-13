@@ -601,6 +601,10 @@ awful.rules.rules = {
 
     { rule = { class= "HipChat" },
       properties = { tag = "Q: im"} },
+    { rule = { class= "Telegram" },
+      properties = { tag = "Q: im"} },
+    { rule = { class= "Mattermost" },
+      properties = { tag = "Q: im"} },
    -- { rule = { class = "jetbrains-idea", instance = "sun-awt-X11-XWindowPeer" }, 
    --   properties = { floating = true, focus = true }
    -- }
