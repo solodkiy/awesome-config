@@ -584,6 +584,16 @@ awful.rules.rules = {
     -- { rule_any = {type = { "normal", "dialog" }
     --  }, properties = { titlebars_enabled = true }
     -- },
+    
+     { 
+         rule = { name = "Commit Changes" },
+         -- properties = { floating = true },
+         callback = function (c)
+             -- dump(c)
+             awful.placement.maximize_vertically(c,nil)
+         end,
+         --properties = { floating = false },
+     },
 
     -- Set tags
     { rule = { class = "Google-chrome" },
