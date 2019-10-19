@@ -592,7 +592,10 @@ awful.rules.rules = {
              -- dump(c)
              awful.placement.maximize_vertically(c,nil)
          end,
-         --properties = { floating = false },
+     },
+     { 
+         rule = { class = "Synapse" },
+         properties = { border_width = 0 },
      },
 
     -- Set tags
