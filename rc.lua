@@ -423,7 +423,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey  }, "Prior", function () awful.layout.inc(awful.layout.layouts, -1) end), 
 
 
-    awful.key({ modkey, "Control" }, "z",function () awful.util.spawn("dm-tool switch-to-greeter") end) -- xscreensaver-command -lock
+    awful.key({ modkey, "Control" }, "z",function () awful.util.spawn("physlock") end)
 )
 
 clientkeys = awful.util.table.join(
