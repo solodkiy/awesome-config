@@ -239,6 +239,25 @@ s.tags[3].master_width_factor = 0.6 -- www
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    local volume = lain.widget.pulsebar()
+    volume.bar:buttons(awful.util.table.join(
+        awful.button({}, 1, function() -- left click
+            os.execute(string.format("pactl set-sink-mute %d toggle", volume.device))
+            volume.update()
+        end),
+        awful.button({}, 3, function() -- right click
+            awful.spawn("pavucontrol")
+        end),
+        awful.button({}, 5, function() -- scroll down
+            os.execute(string.format("pactl set-sink-volume %d +5%%", volume.device))
+            volume.update()
+        end),
+        awful.button({}, 4, function() -- scroll up
+            os.execute(string.format("pactl set-sink-volume %d -5%%", volume.device))
+            volume.update()
+        end)
+    ))
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -253,6 +272,7 @@ s.tags[3].master_width_factor = 0.6 -- www
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            volume.bar,
             mytextclock,
             s.mylayoutbox,
         },
