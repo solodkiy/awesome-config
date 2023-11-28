@@ -218,7 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen             = s,
     })
     ]]
-s.tags[3].master_width_factor = 0.6 -- www
+    s.tags[3].master_width_factor = 0.6 -- www
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
