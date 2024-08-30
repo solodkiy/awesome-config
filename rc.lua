@@ -232,6 +232,22 @@ awful.screen.connect_for_each_screen(function(s)
     ]]
     s.tags[3].master_width_factor = 0.6 -- www
 
+    -- FIX for W:code tag
+    s:connect_signal("tag::history::update", function()
+        local s = awful.screen.focused()
+        local t = s.selected_tag
+        if t.name == 'W: code' then
+            gears.timer.start_new(0.05, function()
+                local client_under_cursor = awful.mouse.client_under_pointer()
+                if client_under_cursor then
+                    client.focus = client_under_cursor
+                    client_under_cursor:raise()
+                end
+                return false  -- Stop the timer
+            end)
+        end
+    end)
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
@@ -560,6 +576,18 @@ clientbuttons = awful.util.table.join(
 root.keys(globalkeys)
 -- }}}
 
+
+
+local function is_wm_protocols_empty(c)
+    -- Using xprop to check the WM_PROTOCOLS property of the client window
+    local handle = io.popen("xprop -id " .. c.window .. " WM_PROTOCOLS")
+    local result = handle:read("*a")
+    handle:close()
+
+    -- If the result is empty or does not contain WM_PROTOCOLS, it's empty or not defined
+    return result:match("WM_TAKE_FOCUS") == nil
+end
+
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -640,6 +668,28 @@ awful.rules.rules = {
    -- { rule = { class = "jetbrains-idea", instance = "sun-awt-X11-XWindowPeer" }, 
    --   properties = { floating = true, focus = true }
    -- }
+    { rule = { class = "jetbrains-phpstorm" },
+      properties = { tag = "W: code", maximized = true, focusable = false },
+      callback = function(c)
+        -- Check if the window type is _NET_WM_WINDOW_TYPE_DIALOG
+        if c.type == "dialog" then
+            c.maximized = false
+            if not is_wm_protocols_empty(c) then
+                c.focusable = true
+            end
+
+            c:connect_signal("unmanage", function()
+                gears.timer.start_new(0.05, function()
+                    local client_under_cursor = awful.mouse.client_under_pointer()
+                    if client_under_cursor then
+                        client.focus = client_under_cursor
+                        client_under_cursor:raise()
+                    end
+                    return false
+                end)
+            end)
+        end
+      end },
 
 }
 -- }}}
