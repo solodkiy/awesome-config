@@ -179,7 +179,7 @@ local tags_names  = {
 local tags_layout = {
     lain.layout.termfair.center, -- ~
     lain.layout.termfair.center, -- 1
-    lain.layout.centerwork, -- 3
+    lain.layout.centerwork, -- 2 
     lain.layout.centerwork, -- 3
     lain.layout.termfair.center, -- 4
     awful.layout.suit.max, -- 5
