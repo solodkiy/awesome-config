@@ -197,6 +197,24 @@ local tags_layout = {
     awful.layout.suit.tile, -- S
 }
 
+local volume = lain.widget.pulsebar()
+volume.bar:buttons(awful.util.table.join(
+    awful.button({}, 1, function() -- left click
+        os.execute(string.format("pactl set-sink-mute %d toggle", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 3, function() -- right click
+        awful.spawn("pavucontrol")
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("pactl set-sink-volume %d -3%%", volume.device))
+        volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("pactl set-sink-volume %d +3%%", volume.device))
+        volume.update()
+    end)
+))
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
@@ -233,24 +251,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
-    local volume = lain.widget.pulsebar()
-    volume.bar:buttons(awful.util.table.join(
-        awful.button({}, 1, function() -- left click
-            os.execute(string.format("pactl set-sink-mute %d toggle", volume.device))
-            volume.update()
-        end),
-        awful.button({}, 3, function() -- right click
-            awful.spawn("pavucontrol")
-        end),
-        awful.button({}, 5, function() -- scroll down
-            os.execute(string.format("pactl set-sink-volume %d +5%%", volume.device))
-            volume.update()
-        end),
-        awful.button({}, 4, function() -- scroll up
-            os.execute(string.format("pactl set-sink-volume %d -5%%", volume.device))
-            volume.update()
-        end)
-    ))
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -282,9 +282,9 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%+", false) end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%-", false) end),
-    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer -D pulse set Master +1 toggle", false) end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%+", false); volume.update() end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%-", false); volume.update() end),
+    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer -D pulse set Master +1 toggle", false); volume.update() end),
 
     -- awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
     --           {description="show help", group="awesome"}),
