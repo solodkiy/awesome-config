@@ -619,6 +619,11 @@ awful.rules.rules = {
          rule = { class = "Synapse" },
          properties = { border_width = 0 },
      },
+     { 
+         rule = { class = "albert" },
+         properties = { border_width = 0 },
+     },
+
 
     -- Set tags
     { rule = { class = "Google-chrome" },
