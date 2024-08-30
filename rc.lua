@@ -410,16 +410,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 
-   -- Скрывает теги с текущего экрана. При повторном нажатии с дополнительного.
-    awful.key({ modkey }, "z",     function ()
+    -- Скрывает теги с текущего экрана. 
+    awful.key({ modkey }, "z", function ()
       if (awful.tag.selected()) then
         awful.tag.viewnone()
       else
-        screen = mouse.screen+1
-        if (screen > 2) then screen = 1 end
-        if (awful.tag.selected(screen)) then
-          awful.tag.viewnone(screen)
-        end
+        -- При повторном нажатии с дополнительного. 
+        -- local screen_count = screen.count()
+        -- if mouse.screen then
+        --   screen = mouse.screen + 1
+        --   if (screen > screen_count) then screen = 1 end -- loop
+        --   if (awful.tag.selected(screen)) then
+        --     awful.tag.viewnone(screen)
+        --   end
+        -- end
       end
     end),
 
