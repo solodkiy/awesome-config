@@ -151,13 +151,7 @@ local tasklist_buttons = awful.util.table.join(
                                                   c:raise()
                                               end
                                           end),
-                     awful.button({ }, 3, client_menu_toggle_fn()),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
-                                          end))
+                     awful.button({ }, 3, client_menu_toggle_fn()))
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -282,9 +276,7 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
 -- }}}
 
